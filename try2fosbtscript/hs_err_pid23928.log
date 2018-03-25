@@ -1,0 +1,828 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 28311552 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=23928, tid=0x00007f1584cfc700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_161-b12) (build 1.8.0_161-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f1594142000):  VMThread [stack: 0x00007f1584bfc000,0x00007f1584cfd000] [id=23936]
+
+Stack: [0x00007f1584bfc000,0x00007f1584cfd000],  sp=0x00007f1584cfb120,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xacf94a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x50050b]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x92b133]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x92b5c9]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x924c0a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x99ab53]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x99bf58]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x99b0b2]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x99838b]  PSScavenge::invoke_no_policy()+0xf3b
+V  [libjvm.so+0x998b11]  PSScavenge::invoke()+0x41
+V  [libjvm.so+0x94f5a0]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x70
+V  [libjvm.so+0xad13c7]  VM_ParallelGCFailedAllocation::doit()+0x97
+V  [libjvm.so+0xad8ed5]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0xad729a]  VMThread::evaluate_operation(VM_Operation*)+0xba
+V  [libjvm.so+0xad761e]  VMThread::loop()+0x1ce
+V  [libjvm.so+0xad7a90]  VMThread::run()+0x70
+V  [libjvm.so+0x92da28]  java_start(Thread*)+0x108
+
+VM_Operation (0x00007f1539edad90): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007f152400d800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f1524013800 JavaThread "pool-3-thread-7" [_thread_blocked, id=24033, stack(0x00007f1539ce0000,0x00007f1539de1000)]
+  0x00007f152400d800 JavaThread "pool-3-thread-6" [_thread_blocked, id=24032, stack(0x00007f1539de1000,0x00007f1539ee2000)]
+  0x00007f151c00a800 JavaThread "pool-3-thread-5" [_thread_blocked, id=24031, stack(0x00007f1539ee2000,0x00007f1539fe3000)]
+  0x00007f1596d90800 JavaThread "pool-3-thread-4" [_thread_blocked, id=24030, stack(0x00007f153a3e5000,0x00007f153a4e6000)]
+  0x00007f1596d8f800 JavaThread "pool-3-thread-3" [_thread_blocked, id=24029, stack(0x00007f153a1e3000,0x00007f153a2e4000)]
+  0x00007f1596d8e800 JavaThread "pool-3-thread-2" [_thread_blocked, id=24028, stack(0x00007f153a2e4000,0x00007f153a3e5000)]
+  0x00007f1596d8e000 JavaThread "pool-3-thread-1" [_thread_blocked, id=24027, stack(0x00007f153a4e6000,0x00007f153a5e7000)]
+  0x00007f15949ac000 JavaThread "process reaper" daemon [_thread_blocked, id=23978, stack(0x00007f157c065000,0x00007f157c09e000)]
+  0x00007f15964e1000 JavaThread "Log4j2-TF-1-AsyncLogger[AsyncContext@31368b99]-1" daemon [_thread_blocked, id=23963, stack(0x00007f1544cfe000,0x00007f1544dff000)]
+  0x00007f15941ad800 JavaThread "Service Thread" daemon [_thread_blocked, id=23947, stack(0x00007f15840ef000,0x00007f15841f0000)]
+  0x00007f1594198000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=23946, stack(0x00007f15841f0000,0x00007f15842f1000)]
+  0x00007f1594196800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=23945, stack(0x00007f15842f1000,0x00007f15843f2000)]
+  0x00007f1594193800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=23944, stack(0x00007f15843f2000,0x00007f15844f3000)]
+  0x00007f1594191000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=23943, stack(0x00007f15844f3000,0x00007f15845f4000)]
+  0x00007f159418c800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_native, id=23942, stack(0x00007f15845f4000,0x00007f15846f5000)]
+  0x00007f1594180800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=23939, stack(0x00007f15848f9000,0x00007f15849fa000)]
+  0x00007f159414e000 JavaThread "Finalizer" daemon [_thread_blocked, id=23938, stack(0x00007f15849fa000,0x00007f1584afb000)]
+  0x00007f1594149800 JavaThread "Reference Handler" daemon [_thread_blocked, id=23937, stack(0x00007f1584afb000,0x00007f1584bfc000)]
+  0x00007f159400d000 JavaThread "main" [_thread_blocked, id=23931, stack(0x00007f159da75000,0x00007f159db76000)]
+
+Other Threads:
+=>0x00007f1594142000 VMThread [stack: 0x00007f1584bfc000,0x00007f1584cfd000] [id=23936]
+  0x00007f15941ba800 WatcherThread [stack: 0x00007f157ceff000,0x00007f157d000000] [id=23948]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f1594009320] Threads_lock - owner thread: 0x00007f1594142000
+[0x00007f1594009820] Heap_lock - owner thread: 0x00007f152400d800
+
+Heap:
+ PSYoungGen      total 129024K, used 5952K [0x00000000e0000000, 0x00000000e8a80000, 0x0000000100000000)
+  eden space 116224K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e7180000)
+  from space 12800K, 46% used [0x00000000e7180000,0x00000000e7750020,0x00000000e7e00000)
+  to   space 10752K, 0% used [0x00000000e8000000,0x00000000e8000000,0x00000000e8a80000)
+ ParOldGen       total 81408K, used 38909K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 47% used [0x00000000a0000000,0x00000000a25ff750,0x00000000a4f80000)
+ Metaspace       used 65921K, capacity 72910K, committed 73216K, reserved 1114112K
+  class space    used 9002K, capacity 9370K, committed 9472K, reserved 1048576K
+
+Card table byte_map: [0x00007f1599f61000,0x00007f159a262000] byte_map_base: 0x00007f1599a61000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f159cf6b920
+ Begin Bits: [0x00007f157d000000, 0x00007f157e800000)
+ End Bits:   [0x00007f157e800000, 0x00007f1580000000)
+
+Polling page: 0x00007f159db8e000
+
+CodeCache: size=245760Kb used=22981Kb max_used=22981Kb free=222778Kb
+ bounds [0x00007f1585000000, 0x00007f1586690000, 0x00007f1594000000]
+ total_blobs=7783 nmethods=7191 adapters=508
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 59,747 Thread 0x00007f1594198000 nmethod 8073 0x00007f158667b710 code [0x00007f158667b8a0, 0x00007f158667bb18]
+Event: 59,747 Thread 0x00007f1594198000 8074       2       sbt.internal.librarymanagement.ivyint.MergedDescriptors::getDependencyArtifacts (33 bytes)
+Event: 59,750 Thread 0x00007f1594198000 nmethod 8074 0x00007f158667d190 code [0x00007f158667d320, 0x00007f158667d528]
+Event: 59,750 Thread 0x00007f1594198000 8070   !   2       java.util.AbstractSet::equals (48 bytes)
+Event: 59,759 Thread 0x00007f1594198000 nmethod 8070 0x00007f158667d610 code [0x00007f158667d7a0, 0x00007f158667dae8]
+Event: 59,772 Thread 0x00007f1594198000 8075       2       org.apache.ivy.core.resolve.IvyNode::doesExclude (107 bytes)
+Event: 59,780 Thread 0x00007f1594198000 nmethod 8075 0x00007f158667fd10 code [0x00007f158667ff00, 0x00007f1586680388]
+Event: 59,780 Thread 0x00007f1594193800 nmethod 8063% 0x00007f1586680890 code [0x00007f1586680a60, 0x00007f1586681458]
+Event: 59,782 Thread 0x00007f1594193800 8058       4       org.apache.ivy.core.resolve.ResolveData::mediate (152 bytes)
+Event: 61,180 Thread 0x00007f1594198000 8079       1       org.apache.ivy.core.resolve.IvyNodeEviction$EvictionData::getRootModuleConf (5 bytes)
+
+GC Heap History (10 events):
+Event: 39,176 GC heap after
+Heap after GC invocations=15 (full 3):
+ PSYoungGen      total 82944K, used 0K [0x00000000e0000000, 0x00000000e5f80000, 0x0000000100000000)
+  eden space 71168K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e4580000)
+  from space 11776K, 0% used [0x00000000e5400000,0x00000000e5400000,0x00000000e5f80000)
+  to   space 13312K, 0% used [0x00000000e4580000,0x00000000e4580000,0x00000000e5280000)
+ ParOldGen       total 81408K, used 33514K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 41% used [0x00000000a0000000,0x00000000a20ba998,0x00000000a4f80000)
+ Metaspace       used 54046K, capacity 59038K, committed 59136K, reserved 1101824K
+  class space    used 7368K, capacity 7671K, committed 7680K, reserved 1048576K
+}
+Event: 43,826 GC heap before
+{Heap before GC invocations=16 (full 3):
+ PSYoungGen      total 82944K, used 71168K [0x00000000e0000000, 0x00000000e5f80000, 0x0000000100000000)
+  eden space 71168K, 100% used [0x00000000e0000000,0x00000000e4580000,0x00000000e4580000)
+  from space 11776K, 0% used [0x00000000e5400000,0x00000000e5400000,0x00000000e5f80000)
+  to   space 13312K, 0% used [0x00000000e4580000,0x00000000e4580000,0x00000000e5280000)
+ ParOldGen       total 81408K, used 33514K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 41% used [0x00000000a0000000,0x00000000a20ba998,0x00000000a4f80000)
+ Metaspace       used 57393K, capacity 63830K, committed 64000K, reserved 1105920K
+  class space    used 8057K, capacity 8377K, committed 8448K, reserved 1048576K
+Event: 43,856 GC heap after
+Heap after GC invocations=16 (full 3):
+ PSYoungGen      total 84480K, used 3849K [0x00000000e0000000, 0x00000000e7680000, 0x0000000100000000)
+  eden space 71168K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e4580000)
+  from space 13312K, 28% used [0x00000000e4580000,0x00000000e49424b0,0x00000000e5280000)
+  to   space 13312K, 0% used [0x00000000e6980000,0x00000000e6980000,0x00000000e7680000)
+ ParOldGen       total 81408K, used 33522K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 41% used [0x00000000a0000000,0x00000000a20bc998,0x00000000a4f80000)
+ Metaspace       used 57393K, capacity 63830K, committed 64000K, reserved 1105920K
+  class space    used 8057K, capacity 8377K, committed 8448K, reserved 1048576K
+}
+Event: 47,044 GC heap before
+{Heap before GC invocations=17 (full 3):
+ PSYoungGen      total 84480K, used 75017K [0x00000000e0000000, 0x00000000e7680000, 0x0000000100000000)
+  eden space 71168K, 100% used [0x00000000e0000000,0x00000000e4580000,0x00000000e4580000)
+  from space 13312K, 28% used [0x00000000e4580000,0x00000000e49424b0,0x00000000e5280000)
+  to   space 13312K, 0% used [0x00000000e6980000,0x00000000e6980000,0x00000000e7680000)
+ ParOldGen       total 81408K, used 33522K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 41% used [0x00000000a0000000,0x00000000a20bc998,0x00000000a4f80000)
+ Metaspace       used 59701K, capacity 66410K, committed 66560K, reserved 1107968K
+  class space    used 8351K, capacity 8694K, committed 8704K, reserved 1048576K
+Event: 47,073 GC heap after
+Heap after GC invocations=17 (full 3):
+ PSYoungGen      total 104960K, used 9755K [0x00000000e0000000, 0x00000000e7580000, 0x0000000100000000)
+  eden space 92672K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e5a80000)
+  from space 12288K, 79% used [0x00000000e6980000,0x00000000e7306e00,0x00000000e7580000)
+  to   space 13824K, 0% used [0x00000000e5a80000,0x00000000e5a80000,0x00000000e6800000)
+ ParOldGen       total 81408K, used 36101K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 44% used [0x00000000a0000000,0x00000000a2341730,0x00000000a4f80000)
+ Metaspace       used 59701K, capacity 66410K, committed 66560K, reserved 1107968K
+  class space    used 8351K, capacity 8694K, committed 8704K, reserved 1048576K
+}
+Event: 51,706 GC heap before
+{Heap before GC invocations=18 (full 3):
+ PSYoungGen      total 104960K, used 102427K [0x00000000e0000000, 0x00000000e7580000, 0x0000000100000000)
+  eden space 92672K, 100% used [0x00000000e0000000,0x00000000e5a80000,0x00000000e5a80000)
+  from space 12288K, 79% used [0x00000000e6980000,0x00000000e7306e00,0x00000000e7580000)
+  to   space 13824K, 0% used [0x00000000e5a80000,0x00000000e5a80000,0x00000000e6800000)
+ ParOldGen       total 81408K, used 36101K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 44% used [0x00000000a0000000,0x00000000a2341730,0x00000000a4f80000)
+ Metaspace       used 65497K, capacity 72526K, committed 72704K, reserved 1112064K
+  class space    used 9000K, capacity 9370K, committed 9472K, reserved 1048576K
+Event: 51,734 GC heap after
+Heap after GC invocations=18 (full 3):
+ PSYoungGen      total 106496K, used 5269K [0x00000000e0000000, 0x00000000e8d00000, 0x0000000100000000)
+  eden space 92672K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e5a80000)
+  from space 13824K, 38% used [0x00000000e5a80000,0x00000000e5fa5410,0x00000000e6800000)
+  to   space 13312K, 0% used [0x00000000e8000000,0x00000000e8000000,0x00000000e8d00000)
+ ParOldGen       total 81408K, used 38885K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 47% used [0x00000000a0000000,0x00000000a25f9750,0x00000000a4f80000)
+ Metaspace       used 65497K, capacity 72526K, committed 72704K, reserved 1112064K
+  class space    used 9000K, capacity 9370K, committed 9472K, reserved 1048576K
+}
+Event: 53,706 GC heap before
+{Heap before GC invocations=19 (full 3):
+ PSYoungGen      total 106496K, used 97941K [0x00000000e0000000, 0x00000000e8d00000, 0x0000000100000000)
+  eden space 92672K, 100% used [0x00000000e0000000,0x00000000e5a80000,0x00000000e5a80000)
+  from space 13824K, 38% used [0x00000000e5a80000,0x00000000e5fa5410,0x00000000e6800000)
+  to   space 13312K, 0% used [0x00000000e8000000,0x00000000e8000000,0x00000000e8d00000)
+ ParOldGen       total 81408K, used 38885K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 47% used [0x00000000a0000000,0x00000000a25f9750,0x00000000a4f80000)
+ Metaspace       used 65787K, capacity 72782K, committed 72960K, reserved 1112064K
+  class space    used 9002K, capacity 9370K, committed 9472K, reserved 1048576K
+Event: 53,723 GC heap after
+Heap after GC invocations=19 (full 3):
+ PSYoungGen      total 126976K, used 5216K [0x00000000e0000000, 0x00000000e8a80000, 0x0000000100000000)
+  eden space 116224K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e7180000)
+  from space 10752K, 48% used [0x00000000e8000000,0x00000000e8518000,0x00000000e8a80000)
+  to   space 12800K, 0% used [0x00000000e7180000,0x00000000e7180000,0x00000000e7e00000)
+ ParOldGen       total 81408K, used 38893K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 47% used [0x00000000a0000000,0x00000000a25fb750,0x00000000a4f80000)
+ Metaspace       used 65787K, capacity 72782K, committed 72960K, reserved 1112064K
+  class space    used 9002K, capacity 9370K, committed 9472K, reserved 1048576K
+}
+Event: 61,220 GC heap before
+{Heap before GC invocations=20 (full 3):
+ PSYoungGen      total 126976K, used 121440K [0x00000000e0000000, 0x00000000e8a80000, 0x0000000100000000)
+  eden space 116224K, 100% used [0x00000000e0000000,0x00000000e7180000,0x00000000e7180000)
+  from space 10752K, 48% used [0x00000000e8000000,0x00000000e8518000,0x00000000e8a80000)
+  to   space 12800K, 0% used [0x00000000e7180000,0x00000000e7180000,0x00000000e7e00000)
+ ParOldGen       total 81408K, used 38893K [0x00000000a0000000, 0x00000000a4f80000, 0x00000000e0000000)
+  object space 81408K, 47% used [0x00000000a0000000,0x00000000a25fb750,0x00000000a4f80000)
+ Metaspace       used 65921K, capacity 72910K, committed 73216K, reserved 1114112K
+  class space    used 9002K, capacity 9370K, committed 9472K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 52,161 Thread 0x00007f152400d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f15862fed24 method=java.util.AbstractCollection.toArray()[Ljava/lang/Object; @ 1
+Event: 52,195 Thread 0x00007f152400d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f15862fed24 method=java.util.AbstractCollection.toArray()[Ljava/lang/Object; @ 1
+Event: 57,163 Thread 0x00007f152400d800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f15865b6f2c method=java.lang.String.split(Ljava/lang/String;I)[Ljava/lang/String; @ 32
+Event: 59,247 Thread 0x00007f152400d800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00007f158647eca4 method=java.util.AbstractCollection.toArray()[Ljava/lang/Object; @ 21
+Event: 59,450 Thread 0x00007f152400d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f15863bd3bc method=java.util.ArrayList.<init>(Ljava/util/Collection;)V @ 6
+Event: 59,461 Thread 0x00007f152400d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f15863bd3bc method=java.util.ArrayList.<init>(Ljava/util/Collection;)V @ 6
+Event: 59,461 Thread 0x00007f152400d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f15863bd3bc method=java.util.ArrayList.<init>(Ljava/util/Collection;)V @ 6
+Event: 59,461 Thread 0x00007f152400d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f15863bd3bc method=java.util.ArrayList.<init>(Ljava/util/Collection;)V @ 6
+Event: 59,467 Thread 0x00007f152400d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f158647cfe4 method=java.util.ArrayList.<init>(Ljava/util/Collection;)V @ 6
+Event: 59,486 Thread 0x00007f152400d800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f15857da894 method=org.apache.ivy.core.module.descriptor.DefaultDependencyDescriptor.getCollectionForConfiguration(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Set; @ 24
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 47,219 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$isoStringKeyFormat$1(Lsjsonnew/IsoString;Ljava/lang/Object;)Ljava/lang/String;> (0x00000000e05458e0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/
+Event: 47,221 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$isoStringKeyFormat$2(Lsjsonnew/IsoString;Ljava/lang/String;)Ljava/lang/Object;> (0x00000000e054a1b0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/
+Event: 47,962 Thread 0x00007f152400d800 Implicit null exception at 0x00007f158513e64f to 0x00007f158513e72d
+Event: 48,222 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$collectionAsScalaIterableConverter$1(Lscala/collection/convert/DecorateAsScala;Ljava/util/Collection;)Lscala/collection/Iterable;> (0x00000000e11dfbd8) thrown at [/HUDSON/workspace/8-2-
+Event: 48,389 Thread 0x00007f152400d800 Implicit null exception at 0x00007f1585967c34 to 0x00007f1585967ed9
+Event: 48,431 Thread 0x00007f152400d800 Implicit null exception at 0x00007f1585221eb6 to 0x00007f15852223a1
+Event: 48,740 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$$minus$1$adapted(Ljava/lang/Object;Lscala/Tuple2;)Ljava/lang/Object;> (0x00000000e1678e28) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/interpr
+Event: 48,741 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$$minus$2(Lscala/collection/mutable/Builder;Lscala/Tuple2;)Lscala/collection/mutable/Builder;> (0x00000000e167d970) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hots
+Event: 48,823 Thread 0x00007f152400d800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$reverse$1$adapted(Lscala/runtime/ObjectRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000e178f450) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/shar
+Event: 59,484 Thread 0x00007f152400d800 Implicit null exception at 0x00007f15857da5c7 to 0x00007f15857da881
+
+Events (10 events):
+Event: 59,486 Thread 0x00007f152400d800 Uncommon trap: trap_request=0xfffffff4 fr.pc=0x00007f15857da894
+Event: 59,486 Thread 0x00007f152400d800 DEOPT PACKING pc=0x00007f15857da894 sp=0x00007f1539edcea0
+Event: 59,486 Thread 0x00007f152400d800 DEOPT UNPACKING pc=0x00007f158504573a sp=0x00007f1539edce68 mode 2
+Event: 59,658 Thread 0x00007f15964e1000 DEOPT PACKING pc=0x00007f15861fce00 sp=0x00007f1544dfd530
+Event: 59,658 Thread 0x00007f15964e1000 DEOPT UNPACKING pc=0x00007f1585047784 sp=0x00007f1544dfd270 mode 1
+Event: 59,833 Thread 0x00007f152400d800 DEOPT PACKING pc=0x00007f158665c271 sp=0x00007f1539eda660
+Event: 59,844 Thread 0x00007f152400d800 DEOPT UNPACKING pc=0x00007f1585047784 sp=0x00007f1539eda3d8 mode 0
+Event: 59,882 Thread 0x00007f15964e1000 DEOPT PACKING pc=0x00007f15861fce00 sp=0x00007f1544dfd530
+Event: 59,886 Thread 0x00007f15964e1000 DEOPT UNPACKING pc=0x00007f1585047784 sp=0x00007f1544dfd270 mode 1
+Event: 61,199 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:06 402074                             /usr/lib/jvm/java-8-oracle/bin/java
+00600000-00601000 rw-p 00000000 08:06 402074                             /usr/lib/jvm/java-8-oracle/bin/java
+01326000-01347000 rw-p 00000000 00:00 0                                  [heap]
+a0000000-a4f80000 rw-p 00000000 00:00 0 
+a4f80000-e0000000 ---p 00000000 00:00 0 
+e0000000-e8a80000 rw-p 00000000 00:00 0 
+ea580000-100000000 ---p 00000000 00:00 0 
+100000000-100940000 rw-p 00000000 00:00 0 
+100940000-140000000 ---p 00000000 00:00 0 
+7f1514000000-7f1514435000 rw-p 00000000 00:00 0 
+7f1514435000-7f1518000000 ---p 00000000 00:00 0 
+7f1518000000-7f1518021000 rw-p 00000000 00:00 0 
+7f1518021000-7f151c000000 ---p 00000000 00:00 0 
+7f151c000000-7f151c021000 rw-p 00000000 00:00 0 
+7f151c021000-7f1520000000 ---p 00000000 00:00 0 
+7f1520000000-7f1520021000 rw-p 00000000 00:00 0 
+7f1520021000-7f1524000000 ---p 00000000 00:00 0 
+7f1524000000-7f1524021000 rw-p 00000000 00:00 0 
+7f1524021000-7f1528000000 ---p 00000000 00:00 0 
+7f1528000000-7f15280be000 rw-p 00000000 00:00 0 
+7f15280be000-7f152c000000 ---p 00000000 00:00 0 
+7f152c000000-7f152c606000 rw-p 00000000 00:00 0 
+7f152c606000-7f1530000000 ---p 00000000 00:00 0 
+7f1530000000-7f1530021000 rw-p 00000000 00:00 0 
+7f1530021000-7f1534000000 ---p 00000000 00:00 0 
+7f1534000000-7f1534021000 rw-p 00000000 00:00 0 
+7f1534021000-7f1538000000 ---p 00000000 00:00 0 
+7f15392e0000-7f1539320000 rw-p 00000000 00:00 0 
+7f1539320000-7f15394e0000 ---p 00000000 00:00 0 
+7f15394e0000-7f15396e0000 rw-p 00000000 00:00 0 
+7f15396e0000-7f15398e0000 rw-p 00000000 00:00 0 
+7f15398e0000-7f1539ae0000 rw-p 00000000 00:00 0 
+7f1539ae0000-7f1539ce0000 rw-p 00000000 00:00 0 
+7f1539ce0000-7f1539ce3000 ---p 00000000 00:00 0 
+7f1539ce3000-7f1539de1000 rw-p 00000000 00:00 0 
+7f1539de1000-7f1539de4000 ---p 00000000 00:00 0 
+7f1539de4000-7f1539ee2000 rw-p 00000000 00:00 0 
+7f1539ee2000-7f1539ee5000 ---p 00000000 00:00 0 
+7f1539ee5000-7f1539fe3000 rw-p 00000000 00:00 0 
+7f1539fe3000-7f153a1e3000 rw-p 00000000 00:00 0 
+7f153a1e3000-7f153a1e6000 ---p 00000000 00:00 0 
+7f153a1e6000-7f153a2e4000 rw-p 00000000 00:00 0 
+7f153a2e4000-7f153a2e7000 ---p 00000000 00:00 0 
+7f153a2e7000-7f153a3e5000 rw-p 00000000 00:00 0 
+7f153a3e5000-7f153a3e8000 ---p 00000000 00:00 0 
+7f153a3e8000-7f153a4e6000 rw-p 00000000 00:00 0 
+7f153a4e6000-7f153a4e9000 ---p 00000000 00:00 0 
+7f153a4e9000-7f153a5e7000 rw-p 00000000 00:00 0 
+7f153a5e7000-7f153a7e7000 rw-p 00000000 00:00 0 
+7f153a7e7000-7f153a9e7000 rw-p 00000000 00:00 0 
+7f153a9e7000-7f153abe7000 rw-p 00000000 00:00 0 
+7f153abe7000-7f153abff000 r-xp 00000000 08:06 2503974                    /tmp/jna-3056/jna5417638795749318627.tmp (deleted)
+7f153abff000-7f153adff000 ---p 00018000 08:06 2503974                    /tmp/jna-3056/jna5417638795749318627.tmp (deleted)
+7f153adff000-7f153ae00000 rw-p 00018000 08:06 2503974                    /tmp/jna-3056/jna5417638795749318627.tmp (deleted)
+7f153ae00000-7f153b000000 rw-p 00000000 00:00 0 
+7f153b000000-7f153b200000 rw-p 00000000 00:00 0 
+7f153b200000-7f153b400000 rw-p 00000000 00:00 0 
+7f153b400000-7f153b600000 rw-p 00000000 00:00 0 
+7f153b600000-7f153b800000 rw-p 00000000 00:00 0 
+7f153b800000-7f153ba00000 rw-p 00000000 00:00 0 
+7f153ba00000-7f153bc00000 rw-p 00000000 00:00 0 
+7f153bc00000-7f153be00000 rw-p 00000000 00:00 0 
+7f153be00000-7f153c000000 rw-p 00000000 00:00 0 
+7f153c000000-7f153c160000 rw-p 00000000 00:00 0 
+7f153c160000-7f1540000000 ---p 00000000 00:00 0 
+7f1540000000-7f1540021000 rw-p 00000000 00:00 0 
+7f1540021000-7f1544000000 ---p 00000000 00:00 0 
+7f1544085000-7f15440fe000 r--s 010f9000 08:06 402181                     /usr/lib/jvm/java-8-oracle/lib/tools.jar
+7f15440fe000-7f15442fe000 rw-p 00000000 00:00 0 
+7f15442fe000-7f15444fe000 rw-p 00000000 00:00 0 
+7f15444fe000-7f15446fe000 rw-p 00000000 00:00 0 
+7f15446fe000-7f15448fe000 rw-p 00000000 00:00 0 
+7f15448fe000-7f1544afe000 rw-p 00000000 00:00 0 
+7f1544afe000-7f1544cfe000 rw-p 00000000 00:00 0 
+7f1544cfe000-7f1544d01000 ---p 00000000 00:00 0 
+7f1544d01000-7f1544dff000 rw-p 00000000 00:00 0 
+7f1544dff000-7f1544fff000 rw-p 00000000 00:00 0 
+7f1544fff000-7f1548000000 rw-p 00000000 00:00 0 
+7f1548000000-7f1548ad9000 rw-p 00000000 00:00 0 
+7f1548ad9000-7f154c000000 ---p 00000000 00:00 0 
+7f154c000000-7f154c021000 rw-p 00000000 00:00 0 
+7f154c021000-7f1550000000 ---p 00000000 00:00 0 
+7f1550000000-7f1553ff9000 rw-p 00000000 00:00 0 
+7f1553ff9000-7f1554000000 ---p 00000000 00:00 0 
+7f1554000000-7f1557ffc000 rw-p 00000000 00:00 0 
+7f1557ffc000-7f1558000000 ---p 00000000 00:00 0 
+7f1558000000-7f1558021000 rw-p 00000000 00:00 0 
+7f1558021000-7f155c000000 ---p 00000000 00:00 0 
+7f155c000000-7f155c021000 rw-p 00000000 00:00 0 
+7f155c021000-7f1560000000 ---p 00000000 00:00 0 
+7f1560000000-7f156003c000 rw-p 00000000 00:00 0 
+7f156003c000-7f1564000000 ---p 00000000 00:00 0 
+7f1564000000-7f1564021000 rw-p 00000000 00:00 0 
+7f1564021000-7f1568000000 ---p 00000000 00:00 0 
+7f1568000000-7f15682aa000 rw-p 00000000 00:00 0 
+7f15682aa000-7f156c000000 ---p 00000000 00:00 0 
+7f156c000000-7f156c021000 rw-p 00000000 00:00 0 
+7f156c021000-7f1570000000 ---p 00000000 00:00 0 
+7f1570000000-7f157002e000 rw-p 00000000 00:00 0 
+7f157002e000-7f1574000000 ---p 00000000 00:00 0 
+7f1574000000-7f1574021000 rw-p 00000000 00:00 0 
+7f1574021000-7f1578000000 ---p 00000000 00:00 0 
+7f1578000000-7f1578021000 rw-p 00000000 00:00 0 
+7f1578021000-7f157c000000 ---p 00000000 00:00 0 
+7f157c035000-7f157c037000 r--s 00001000 08:06 538266                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/dnsns.jar
+7f157c037000-7f157c039000 r--s 00009000 08:06 538265                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+7f157c039000-7f157c03a000 r--s 0000a000 08:06 538269                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/jaccess.jar
+7f157c03a000-7f157c040000 r--s 0003e000 08:06 538275                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar
+7f157c040000-7f157c044000 r--s 0003a000 08:06 538272                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar
+7f157c044000-7f157c049000 r--s 00084000 08:06 538193                     /usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar
+7f157c049000-7f157c04e000 r--s 002f9000 08:06 538251                     /usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar
+7f157c04e000-7f157c051000 r--s 0001a000 08:06 538344                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f157c051000-7f157c064000 r--s 00345000 08:06 538262                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7f157c064000-7f157c065000 r--s 00010000 08:06 538271                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/zipfs.jar
+7f157c065000-7f157c068000 ---p 00000000 00:00 0 
+7f157c068000-7f157c09e000 rw-p 00000000 00:00 0 
+7f157c09e000-7f157c0a5000 r--s 00000000 08:06 2891489                    /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f157c0a5000-7f157c0d5000 r--p 00000000 08:06 2895291                    /usr/share/locale/ru/LC_MESSAGES/libc.mo
+7f157c0d5000-7f157c0da000 r--s 0009d000 08:06 538263                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7f157c0da000-7f157c0f5000 r--s 001d4000 08:06 538270                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/nashorn.jar
+7f157c0f5000-7f157c0fe000 r-xp 00000000 08:06 538336                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f157c0fe000-7f157c2fd000 ---p 00009000 08:06 538336                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f157c2fd000-7f157c2fe000 rw-p 00008000 08:06 538336                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f157c2fe000-7f157c300000 r--s 00009000 08:06 1982582                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/slf4j-api-1.7.25.jar
+7f157c300000-7f157c500000 rw-p 00000000 00:00 0 
+7f157c500000-7f157c50a000 r--s 00116000 08:06 538274                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7f157c50a000-7f157c526000 r--s 00393000 08:06 538267                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7f157c526000-7f157c726000 rw-p 00000000 00:00 0 
+7f157c726000-7f157c72d000 r--s 00095000 08:06 1982542                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/main-settings_2.12-1.1.1.jar
+7f157c72d000-7f157c72e000 r--s 00003000 08:06 1982531                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-compile_2.12-1.1.1.jar
+7f157c72e000-7f157c730000 r--s 00007000 08:06 1982571                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/lenses_2.12-0.4.12.jar
+7f157c730000-7f157c731000 r--s 00009000 08:06 1982520                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/gigahorse-okhttp_2.12-0.3.0.jar
+7f157c731000-7f157c734000 r--s 00022000 08:06 1982551                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sbinary_2.12-0.4.4.jar
+7f157c734000-7f157c735000 r--s 00007000 08:06 1982563                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/okhttp-urlconnection-3.7.0.jar
+7f157c735000-7f157c737000 r--s 0002d000 08:06 1982554                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-cache_2.12-1.1.2.jar
+7f157c737000-7f157c744000 r--s 001ad000 08:06 1982579                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-persist_2.12-1.1.1.jar
+7f157c744000-7f157c746000 r--s 00024000 08:06 1982525                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-apiinfo_2.12-1.1.1.jar
+7f157c746000-7f157c748000 r--s 0000e000 08:06 1982592                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/fastparse-utils_2.12-0.4.2.jar
+7f157c748000-7f157c749000 r--s 0000e000 08:06 1982536                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc_2.12-1.1.1.jar
+7f157c749000-7f157c949000 rw-p 00000000 00:00 0 
+7f157c949000-7f157c94d000 r--s 00039000 08:06 1982586                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-logging_2.12-1.1.2.jar
+7f157c94d000-7f157c96f000 r--s 0034a000 08:06 1982527                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scala-reflect-2.12.4.jar
+7f157c96f000-7f157c973000 r--s 00030000 08:06 1982550                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scala-parser-combinators_2.12-1.0.5.jar
+7f157c973000-7f157c975000 r--s 00008000 08:06 1982537                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sjson-new-scalajson_2.12-0.8.2.jar
+7f157c975000-7f157c979000 r--s 0004c000 08:06 1982577                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/collections_2.12-1.1.1.jar
+7f157c979000-7f157c97e000 r--s 00031000 08:06 1982576                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/config-1.2.0.jar
+7f157c97e000-7f157c982000 r--s 0015c000 08:06 1982558                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/jna-4.5.0.jar
+7f157c982000-7f157c985000 r--s 0003e000 08:06 1982581                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/command_2.12-1.1.1.jar
+7f157c985000-7f157c987000 r--s 00012000 08:06 1982548                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/tasks_2.12-1.1.1.jar
+7f157c987000-7f157c988000 r--s 00005000 08:06 1982534                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/log4j-slf4j-impl-2.8.1.jar
+7f157c988000-7f157c98a000 r--s 00011000 08:06 1982540                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/jawn-parser_2.12-0.10.4.jar
+7f157c98a000-7f157c98d000 r--s 0002d000 08:06 1982547                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/testing_2.12-1.1.1.jar
+7f157c98d000-7f157c993000 r--s 000bb000 08:06 1982584                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sjson-new-core_2.12-0.8.2.jar
+7f157c993000-7f157c9ad000 r--s 0021e000 08:06 1982528                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/jna-platform-4.5.0.jar
+7f157c9ad000-7f157c9b1000 r--s 00047000 08:06 1982583                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/fastparse_2.12-0.4.2.jar
+7f157c9b1000-7f157c9b3000 r--s 00004000 08:06 1982564                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/ipcsocket-1.0.0.jar
+7f157c9b3000-7f157c9b4000 r--s 00001000 08:06 1982532                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scalacache-caffeine_2.12-0.20.0.jar
+7f157c9b4000-7f157c9b5000 r--s 00002000 08:06 1982562                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/launcher-interface-1.0.2.jar
+7f157c9b5000-7f157c9ba000 r--s 00093000 08:06 1982541                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/librarymanagement-ivy_2.12-1.1.3.jar
+7f157c9ba000-7f157c9c0000 r--s 00080000 08:06 1982521                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scala-xml_2.12-1.0.6.jar
+7f157c9c0000-7f157c9c4000 r--s 00062000 08:06 1982544                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/protocol_2.12-1.1.1.jar
+7f157c9c4000-7f157c9c5000 r--s 0000f000 08:06 1982578                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sbt-1.1.1.jar
+7f157c9c5000-7f157c9c6000 r--s 00000000 08:06 1982553                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/reactive-streams-1.0.0.jar
+7f157c9c6000-7f157c9c7000 r--s 00000000 08:06 1982546                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/template-resolver-0.1.jar
+7f157c9c7000-7f157c9c9000 r--s 0000b000 08:06 1982589                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/logic_2.12-1.1.1.jar
+7f157c9c9000-7f157c9d8000 r--s 0013d000 08:06 1982519                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/protobuf-java-3.3.1.jar
+7f157c9d8000-7f157c9dc000 r--s 00034000 08:06 1982523                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/jsch-0.1.46.jar
+7f157c9dc000-7f157c9e0000 r--s 0004f000 08:06 1982587                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-core_2.12-1.1.1.jar
+7f157c9e0000-7f157c9e1000 r--s 0000b000 08:06 1982556                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-ivy-integration_2.12-1.1.1.jar
+7f157c9e1000-7f157c9e5000 r--s 00038000 08:06 1982524                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/ssl-config-core_2.12-0.2.2.jar
+7f157c9e5000-7f157c9e8000 r--s 00031000 08:06 1982567                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/actions_2.12-1.1.1.jar
+7f157c9e8000-7f157c9e9000 r--s 00003000 08:06 1982565                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-relation_2.12-1.1.2.jar
+7f157c9e9000-7f157c9ea000 r--s 00011000 08:06 1982591                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/run_2.12-1.1.1.jar
+7f157c9ea000-7f157c9f3000 r--s 000ae000 08:06 1982555                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/librarymanagement-core_2.12-1.1.3.jar
+7f157c9f3000-7f157c9f6000 r--s 0003c000 08:06 1982572                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/completion_2.12-1.1.1.jar
+7f157c9f6000-7f157c9f9000 r--s 00026000 08:06 1982575                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/gigahorse-core_2.12-0.3.0.jar
+7f157c9f9000-7f157ca0e000 r--s 00101000 08:06 1982535                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar
+7f157ca0e000-7f157ca10000 r--s 00002000 08:06 1982574                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/test-interface-1.0.jar
+7f157ca10000-7f157ca13000 r--s 00012000 08:06 1982543                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/disruptor-3.3.6.jar
+7f157ca13000-7f157ca17000 r--s 00013000 08:06 1982570                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/compiler-interface-1.1.1.jar
+7f157ca17000-7f157ca33000 r--s 0013b000 08:06 1982518                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/log4j-core-2.8.1.jar
+7f157ca33000-7f157ca3d000 r--s 00199000 08:06 1982533                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/main_2.12-1.1.1.jar
+7f157ca3d000-7f157ca53000 r--s 000e0000 08:06 1982539                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/caffeine-2.5.6.jar
+7f157ca53000-7f157ca8b000 r--s 004ca000 08:06 1982601                    /home/a1/.sbt/boot/scala-2.12.4/lib/scala-library.jar
+7f157ca8b000-7f157cad7000 r--s 0090b000 08:06 1982603                    /home/a1/.sbt/boot/scala-2.12.4/lib/scala-compiler.jar
+7f157cad7000-7f157cae8000 r-xp 00000000 08:06 538331                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f157cae8000-7f157cce7000 ---p 00011000 08:06 538331                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f157cce7000-7f157cce8000 rw-p 00010000 08:06 538331                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f157cce8000-7f157ccfe000 r-xp 00000000 08:06 538328                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f157ccfe000-7f157cefe000 ---p 00016000 08:06 538328                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f157cefe000-7f157ceff000 rw-p 00016000 08:06 538328                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f157ceff000-7f157cf00000 ---p 00000000 00:00 0 
+7f157cf00000-7f157d000000 rw-p 00000000 00:00 0 
+7f157d000000-7f1580000000 rw-p 00000000 00:00 0 
+7f1580000000-7f1580021000 rw-p 00000000 00:00 0 
+7f1580021000-7f1584000000 ---p 00000000 00:00 0 
+7f1584000000-7f1584002000 r--s 00019000 08:06 1982561                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/task-system_2.12-1.1.1.jar
+7f1584002000-7f1584004000 r--s 00019000 08:06 1982529                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sourcecode_2.12-0.1.3.jar
+7f1584004000-7f1584007000 r--s 0001c000 08:06 1982557                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scalacache-core_2.12-0.20.0.jar
+7f1584007000-7f1584009000 r--s 00007000 08:06 1982566                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-tracking_2.12-1.1.2.jar
+7f1584009000-7f158400a000 r--s 00003000 08:06 1982590                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-position_2.12-1.1.2.jar
+7f158400a000-7f158400c000 r--s 0000f000 08:06 1982580                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/shaded-scalajson_2.12-1.0.0-M4.jar
+7f158400c000-7f1584019000 r--s 001a6000 08:06 1982559                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/scalapb-runtime_2.12-0.6.0.jar
+7f1584019000-7f158401b000 r--s 00012000 08:06 1982585                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/core-macros_2.12-1.1.1.jar
+7f158401b000-7f158403d000 r--s 0034a000 08:06 1982604                    /home/a1/.sbt/boot/scala-2.12.4/lib/scala-reflect.jar
+7f158403d000-7f1584059000 r--s 0010c000 08:06 1971344                    /home/a1/.IdeaIC2017.3/config/plugins/Scala/launcher/sbt-launch.jar
+7f1584059000-7f15840ef000 r--s 0110a000 08:06 538268                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/jfxrt.jar
+7f15840ef000-7f15840f2000 ---p 00000000 00:00 0 
+7f15840f2000-7f15841f0000 rw-p 00000000 00:00 0 
+7f15841f0000-7f15841f3000 ---p 00000000 00:00 0 
+7f15841f3000-7f15842f1000 rw-p 00000000 00:00 0 
+7f15842f1000-7f15842f4000 ---p 00000000 00:00 0 
+7f15842f4000-7f15843f2000 rw-p 00000000 00:00 0 
+7f15843f2000-7f15843f5000 ---p 00000000 00:00 0 
+7f15843f5000-7f15844f3000 rw-p 00000000 00:00 0 
+7f15844f3000-7f15844f6000 ---p 00000000 00:00 0 
+7f15844f6000-7f15845f4000 rw-p 00000000 00:00 0 
+7f15845f4000-7f15845f7000 ---p 00000000 00:00 0 
+7f15845f7000-7f15846f5000 rw-p 00000000 00:00 0 
+7f15846f5000-7f15846f9000 r-xp 00000000 08:06 538298                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libdt_socket.so
+7f15846f9000-7f15848f8000 ---p 00004000 08:06 538298                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libdt_socket.so
+7f15848f8000-7f15848f9000 rw-p 00003000 08:06 538298                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libdt_socket.so
+7f15848f9000-7f15848fc000 ---p 00000000 00:00 0 
+7f15848fc000-7f15849fa000 rw-p 00000000 00:00 0 
+7f15849fa000-7f15849fd000 ---p 00000000 00:00 0 
+7f15849fd000-7f1584afb000 rw-p 00000000 00:00 0 
+7f1584afb000-7f1584afe000 ---p 00000000 00:00 0 
+7f1584afe000-7f1584bfc000 rw-p 00000000 00:00 0 
+7f1584bfc000-7f1584bfd000 ---p 00000000 00:00 0 
+7f1584bfd000-7f1585000000 rw-p 00000000 00:00 0 
+7f1585000000-7f1586690000 rwxp 00000000 00:00 0 
+7f1586690000-7f1594000000 ---p 00000000 00:00 0 
+7f1594000000-7f1596f9d000 rw-p 00000000 00:00 0 
+7f1596f9d000-7f1598000000 ---p 00000000 00:00 0 
+7f1598000000-7f1598002000 r--s 00002000 08:06 1982549                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-control_2.12-1.1.2.jar
+7f1598002000-7f1598c0e000 rw-p 00000000 00:00 0 
+7f1598c0e000-7f1598de7000 r--s 03d64000 08:06 538253                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7f1598de7000-7f1598e5d000 rw-p 00000000 00:00 0 
+7f1598e5d000-7f159995d000 rw-p 00000000 00:00 0 
+7f159995d000-7f159995e000 ---p 00000000 00:00 0 
+7f159995e000-7f1599a5e000 rw-p 00000000 00:00 0 
+7f1599a5e000-7f1599a5f000 ---p 00000000 00:00 0 
+7f1599a5f000-7f1599b5f000 rw-p 00000000 00:00 0 
+7f1599b5f000-7f1599b60000 ---p 00000000 00:00 0 
+7f1599b60000-7f1599c60000 rw-p 00000000 00:00 0 
+7f1599c60000-7f1599c61000 ---p 00000000 00:00 0 
+7f1599c61000-7f1599d61000 rw-p 00000000 00:00 0 
+7f1599d61000-7f1599d89000 rw-p 00000000 00:00 0 
+7f1599d89000-7f1599f61000 ---p 00000000 00:00 0 
+7f1599f61000-7f1599f89000 rw-p 00000000 00:00 0 
+7f1599f89000-7f159a161000 ---p 00000000 00:00 0 
+7f159a161000-7f159a1a7000 rw-p 00000000 00:00 0 
+7f159a1a7000-7f159a1a8000 ---p 00000000 00:00 0 
+7f159a1a8000-7f159a261000 ---p 00000000 00:00 0 
+7f159a261000-7f159a2bd000 rw-p 00000000 00:00 0 
+7f159a2bd000-7f159a622000 ---p 00000000 00:00 0 
+7f159a622000-7f159a63d000 r-xp 00000000 08:06 538324                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f159a63d000-7f159a83d000 ---p 0001b000 08:06 538324                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f159a83d000-7f159a83e000 rw-p 0001b000 08:06 538324                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f159a83e000-7f159a848000 r-xp 00000000 08:06 1575954                    /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f159a848000-7f159aa48000 ---p 0000a000 08:06 1575954                    /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f159aa48000-7f159aa49000 r--p 0000a000 08:06 1575954                    /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f159aa49000-7f159aa4a000 rw-p 0000b000 08:06 1575954                    /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f159aa4a000-7f159aa50000 rw-p 00000000 00:00 0 
+7f159aa50000-7f159aa5b000 r-xp 00000000 08:06 1575956                    /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f159aa5b000-7f159ac5a000 ---p 0000b000 08:06 1575956                    /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f159ac5a000-7f159ac5b000 r--p 0000a000 08:06 1575956                    /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f159ac5b000-7f159ac5c000 rw-p 0000b000 08:06 1575956                    /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f159ac5c000-7f159ac70000 r-xp 00000000 08:06 1575951                    /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f159ac70000-7f159ae70000 ---p 00014000 08:06 1575951                    /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f159ae70000-7f159ae71000 r--p 00014000 08:06 1575951                    /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f159ae71000-7f159ae72000 rw-p 00015000 08:06 1575951                    /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f159ae72000-7f159ae74000 rw-p 00000000 00:00 0 
+7f159ae74000-7f159ae7b000 r-xp 00000000 08:06 1575952                    /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f159ae7b000-7f159b07a000 ---p 00007000 08:06 1575952                    /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f159b07a000-7f159b07b000 r--p 00006000 08:06 1575952                    /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f159b07b000-7f159b07c000 rw-p 00007000 08:06 1575952                    /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f159b07c000-7f159b217000 r--p 00000000 08:06 2890459                    /usr/lib/locale/locale-archive
+7f159b217000-7f159b219000 r-xp 00000000 08:06 538300                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpt.so
+7f159b219000-7f159b419000 ---p 00002000 08:06 538300                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpt.so
+7f159b419000-7f159b41a000 rw-p 00002000 08:06 538300                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpt.so
+7f159b41a000-7f159b454000 r-xp 00000000 08:06 538312                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjdwp.so
+7f159b454000-7f159b653000 ---p 0003a000 08:06 538312                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjdwp.so
+7f159b653000-7f159b654000 rw-p 00039000 08:06 538312                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjdwp.so
+7f159b654000-7f159b655000 rw-p 00000000 00:00 0 
+7f159b655000-7f159b680000 r-xp 00000000 08:06 538318                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f159b680000-7f159b87f000 ---p 0002b000 08:06 538318                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f159b87f000-7f159b881000 rw-p 0002a000 08:06 538318                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f159b881000-7f159b88e000 r-xp 00000000 08:06 538323                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f159b88e000-7f159ba8e000 ---p 0000d000 08:06 538323                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f159ba8e000-7f159ba90000 rw-p 0000d000 08:06 538323                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f159ba90000-7f159ba97000 r-xp 00000000 08:06 1575961                    /lib/x86_64-linux-gnu/librt-2.24.so
+7f159ba97000-7f159bc96000 ---p 00007000 08:06 1575961                    /lib/x86_64-linux-gnu/librt-2.24.so
+7f159bc96000-7f159bc97000 r--p 00006000 08:06 1575961                    /lib/x86_64-linux-gnu/librt-2.24.so
+7f159bc97000-7f159bc98000 rw-p 00007000 08:06 1575961                    /lib/x86_64-linux-gnu/librt-2.24.so
+7f159bc98000-7f159bd9b000 r-xp 00000000 08:06 1575948                    /lib/x86_64-linux-gnu/libm-2.24.so
+7f159bd9b000-7f159bf9a000 ---p 00103000 08:06 1575948                    /lib/x86_64-linux-gnu/libm-2.24.so
+7f159bf9a000-7f159bf9b000 r--p 00102000 08:06 1575948                    /lib/x86_64-linux-gnu/libm-2.24.so
+7f159bf9b000-7f159bf9c000 rw-p 00103000 08:06 1575948                    /lib/x86_64-linux-gnu/libm-2.24.so
+7f159bf9c000-7f159cc75000 r-xp 00000000 08:06 925647                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f159cc75000-7f159ce74000 ---p 00cd9000 08:06 925647                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f159ce74000-7f159cf4d000 rw-p 00cd8000 08:06 925647                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f159cf4d000-7f159cf99000 rw-p 00000000 00:00 0 
+7f159cf99000-7f159d12e000 r-xp 00000000 08:06 1575944                    /lib/x86_64-linux-gnu/libc-2.24.so
+7f159d12e000-7f159d32e000 ---p 00195000 08:06 1575944                    /lib/x86_64-linux-gnu/libc-2.24.so
+7f159d32e000-7f159d332000 r--p 00195000 08:06 1575944                    /lib/x86_64-linux-gnu/libc-2.24.so
+7f159d332000-7f159d334000 rw-p 00199000 08:06 1575944                    /lib/x86_64-linux-gnu/libc-2.24.so
+7f159d334000-7f159d338000 rw-p 00000000 00:00 0 
+7f159d338000-7f159d33b000 r-xp 00000000 08:06 1575947                    /lib/x86_64-linux-gnu/libdl-2.24.so
+7f159d33b000-7f159d53a000 ---p 00003000 08:06 1575947                    /lib/x86_64-linux-gnu/libdl-2.24.so
+7f159d53a000-7f159d53b000 r--p 00002000 08:06 1575947                    /lib/x86_64-linux-gnu/libdl-2.24.so
+7f159d53b000-7f159d53c000 rw-p 00003000 08:06 1575947                    /lib/x86_64-linux-gnu/libdl-2.24.so
+7f159d53c000-7f159d552000 r-xp 00000000 08:06 403435                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f159d552000-7f159d751000 ---p 00016000 08:06 403435                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f159d751000-7f159d752000 rw-p 00015000 08:06 403435                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f159d752000-7f159d76a000 r-xp 00000000 08:06 1575959                    /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f159d76a000-7f159d969000 ---p 00018000 08:06 1575959                    /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f159d969000-7f159d96a000 r--p 00017000 08:06 1575959                    /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f159d96a000-7f159d96b000 rw-p 00018000 08:06 1575959                    /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f159d96b000-7f159d96f000 rw-p 00000000 00:00 0 
+7f159d96f000-7f159d992000 r-xp 00000000 08:06 1575939                    /lib/x86_64-linux-gnu/ld-2.24.so
+7f159d992000-7f159d993000 r--s 00000000 08:06 1982568                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/util-interface-1.1.2.jar
+7f159d993000-7f159d994000 r--s 00005000 08:06 1982522                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/test-agent-1.1.1.jar
+7f159d994000-7f159d99a000 r--s 0005b000 08:06 1982552                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/okhttp-3.7.0.jar
+7f159d99a000-7f159d99c000 r--s 00012000 08:06 1982588                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/okio-1.12.0.jar
+7f159d99c000-7f159d9a0000 r--s 0003c000 08:06 1982573                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/io_2.12-1.1.4.jar
+7f159d9a0000-7f159d9a1000 r--s 0000c000 08:06 1982538                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-classfile_2.12-1.1.1.jar
+7f159d9a1000-7f159d9a5000 r--s 0003e000 08:06 1982569                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/jline-2.14.4.jar
+7f159d9a5000-7f159d9aa000 r--s 00033000 08:06 1982526                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/log4j-api-2.8.1.jar
+7f159d9aa000-7f159d9ac000 r--s 00010000 08:06 1982560                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-classpath_2.12-1.1.1.jar
+7f159d9ac000-7f159d9ad000 r--s 00001000 08:06 1982545                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/sjson-new-murmurhash_2.12-0.8.2.jar
+7f159d9ad000-7f159da57000 rw-p 00000000 00:00 0 
+7f159da57000-7f159da75000 rw-p 00000000 00:00 0 
+7f159da75000-7f159da78000 ---p 00000000 00:00 0 
+7f159da78000-7f159db78000 rw-p 00000000 00:00 0 
+7f159db78000-7f159db7b000 r--s 00034000 08:06 1982530                    /home/a1/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.1.1/zinc-compile-core_2.12-1.1.1.jar
+7f159db7b000-7f159db81000 r--s 00080000 08:06 1982602                    /home/a1/.sbt/boot/scala-2.12.4/lib/scala-xml_2.12.jar
+7f159db81000-7f159db85000 r--s 0003e000 08:06 1982600                    /home/a1/.sbt/boot/scala-2.12.4/lib/jline.jar
+7f159db85000-7f159db8d000 rw-s 00000000 08:06 2233386                    /tmp/hsperfdata_a1/23928
+7f159db8d000-7f159db8e000 rw-p 00000000 00:00 0 
+7f159db8e000-7f159db8f000 ---p 00000000 00:00 0 
+7f159db8f000-7f159db92000 rw-p 00000000 00:00 0 
+7f159db92000-7f159db93000 r--p 00023000 08:06 1575939                    /lib/x86_64-linux-gnu/ld-2.24.so
+7f159db93000-7f159db94000 rw-p 00024000 08:06 1575939                    /lib/x86_64-linux-gnu/ld-2.24.so
+7f159db94000-7f159db95000 rw-p 00000000 00:00 0 
+7ffdf3916000-7ffdf3937000 rw-p 00000000 00:00 0                          [stack]
+7ffdf3989000-7ffdf398b000 r--p 00000000 00:00 0                          [vvar]
+7ffdf398b000-7ffdf398d000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=localhost:43235,suspend=n,server=y -Xdebug -Xmx1536M -XX:MaxPermSize=384M -Dfile.encoding=UTF-8 -Didea.runid=2017.2 -Didea.managed=true 
+java_command: /home/a1/.IdeaIC2017.3/config/plugins/Scala/launcher/sbt-launch.jar idea-shell
+java_class_path (initial): /home/a1/.IdeaIC2017.3/config/plugins/Scala/launcher/sbt-launch.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad01e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad01e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x9297f0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:PRETTY_NAME="Debian GNU/Linux 9 (stretch)"
+NAME="Debian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+uname:Linux 4.9.0-4-amd64 #1 SMP Debian 4.9.65-3+deb9u1 (2017-12-23) x86_64
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 14985, NOFILE 1048576, AS infinity
+load average:16,88 7,36 4,15
+
+/proc/meminfo:
+MemTotal:        3933408 kB
+MemFree:           85912 kB
+MemAvailable:        728 kB
+Buffers:             704 kB
+Cached:           216928 kB
+SwapCached:         2972 kB
+Active:          2883756 kB
+Inactive:         635360 kB
+Active(anon):    2865252 kB
+Inactive(anon):   614012 kB
+Active(file):      18504 kB
+Inactive(file):    21348 kB
+Unevictable:         112 kB
+Mlocked:             112 kB
+SwapTotal:       4400124 kB
+SwapFree:             16 kB
+Dirty:               132 kB
+Writeback:             0 kB
+AnonPages:       3300448 kB
+Mapped:            85256 kB
+Shmem:            177744 kB
+Slab:             107300 kB
+SReclaimable:      26300 kB
+SUnreclaim:        81000 kB
+KernelStack:       15888 kB
+PageTables:        99148 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6366828 kB
+Committed_AS:   17924856 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      704224 kB
+DirectMap2M:     3373056 kB
+DirectMap1G:           0 kB
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x4e
+cpu MHz		: 1692.443
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+bugs		:
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x4e
+cpu MHz		: 715.374
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+bugs		:
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x4e
+cpu MHz		: 934.222
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+bugs		:
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x4e
+cpu MHz		: 728.558
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+bugs		:
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3933408k(84012k free), swap 4400124k(8k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.161-b12) for linux-amd64 JRE (1.8.0_161-b12), built on Dec 19 2017 16:12:43 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sun Mar 25 00:29:25 2018
+elapsed time: 72 seconds (0d 0h 1m 12s)
+
