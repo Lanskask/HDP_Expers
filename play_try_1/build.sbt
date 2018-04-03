@@ -1,4 +1,4 @@
-name := """play-try-1"""
+name := """play_try_1"""
 organization := "com.example"
 
 version := "1.0-SNAPSHOT"
@@ -9,6 +9,8 @@ scalaVersion := "2.12.4"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+// https://mvnrepository.com/artifact/org.sorm-framework/sorm
+libraryDependencies += "org.sorm-framework" % "sorm" % "0.3.8"
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"

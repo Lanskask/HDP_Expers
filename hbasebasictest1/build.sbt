@@ -28,3 +28,8 @@ libraryDependencies ++= Seq(
     "org.apache.hadoop" % "hadoop-core" % "0.20.2",
     "org.apache.hbase" % "hbase" % "0.90.4"
 )
+
+ivyXML :=
+  <dependencies>
+      <exclude module="thrift"/>
+  </dependencies>

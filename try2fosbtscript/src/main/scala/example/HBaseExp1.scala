@@ -4,9 +4,13 @@ import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.{Connection,ConnectionFactory,HBaseAdmin,HTable,Put,Get}
 import org.apache.hadoop.hbase.util.Bytes
 
-class HBaseExp1 extends App {
-
+object HBaseExp1 extends App {
+  val ipAddress = "167.99.88.159"
   val conf = HBaseConfiguration.create()
+  conf.set("hbase.master", ipAddress  + ":60000")
+  conf.set("hbase.zookeeper.quorum", ipAddress) // zookeeperHost
+  conf.set("hbase.zookeeper.property.clientPort", "2181")
+
   val connection = ConnectionFactory.createConnection(conf);
   val admin = connection.getAdmin();
 

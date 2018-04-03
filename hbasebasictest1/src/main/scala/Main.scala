@@ -5,7 +5,7 @@ import org.apache.hadoop.hbase.util.Bytes
 
 
 object Main extends App {
-	val conf = new HBaseConfiguration()
+	val conf = HBaseConfiguration.create()
 	val connection = ConnectionFactory.createConnection(conf);
 	val admin = connection.getAdmin();
 
